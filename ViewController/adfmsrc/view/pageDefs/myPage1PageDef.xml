@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="myPage1PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DeptView1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="DeptView1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="EmpView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="EmpView2Iterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DeptView1Iterator" id="DeptView1">
+      <nodeDefinition DefName="model.DeptView" Name="DeptView10">
+        <AttrNames>
+          <Item Value="Deptno"/>
+          <Item Value="Dname"/>
+          <Item Value="Loc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="DeptView1Iterator" id="Dname">
+      <AttrNames>
+        <Item Value="Dname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DeptView1Iterator" id="Deptno">
+      <AttrNames>
+        <Item Value="Deptno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DeptView1Iterator" id="Loc">
+      <AttrNames>
+        <Item Value="Loc"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="EmpView2Iterator" id="Next" RequiresUpdateModel="true"
+            Action="next"/>
+    <action IterBinding="EmpView2Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Salgrade"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="SALGRADE"
+  AliasName="Salgrade"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="Grade"
+    ColumnName="GRADE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SALGRADE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Losal"
+    ColumnName="LOSAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SALGRADE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Hisal"
+    ColumnName="HISAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SALGRADE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RowID"
+    IsUpdateable="false"
+    ColumnName="ROWID"
+    SQLType="ROWID"
+    Type="oracle.jbo.domain.RowID"
+    ColumnType="ROWID"
+    TableName="SALGRADE"
+    PrimaryKey="true"/>
+</Entity>

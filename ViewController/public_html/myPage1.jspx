@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:cl="/componentLib1">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:pageTemplate viewId="/corporateTemplate.jspx" id="pt1">
+          <f:facet name="main">
+            <af:panelCollection id="pc1">
+              <f:facet name="menus"/>
+              <f:facet name="toolbar">
+                <af:toolbar id="t2">
+                  <af:commandToolbarButton actionListener="#{bindings.Next.execute}"
+                                           text="Next"
+                                           disabled="#{!bindings.Next.enabled}"
+                                           partialSubmit="true" id="ctb1"/>
+                  <af:commandToolbarButton actionListener="#{bindings.Previous.execute}"
+                                           text="Previous"
+                                           disabled="#{!bindings.Previous.enabled}"
+                                           partialSubmit="true" id="ctb2"/>
+                </af:toolbar>
+              </f:facet>
+              <f:facet name="statusbar"/>
+              <af:table value="#{bindings.DeptView1.collectionModel}" var="row"
+                        rows="#{bindings.DeptView1.rangeSize}"
+                        emptyText="#{bindings.DeptView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.DeptView1.rangeSize}"
+                        rowBandingInterval="0" id="t1">
+                <af:column sortProperty="#{bindings.DeptView1.hints.Deptno.name}"
+                           sortable="false"
+                           headerText="#{bindings.DeptView1.hints.Deptno.label}"
+                           id="c1">
+                  <af:outputText value="#{row.Deptno}" id="ot3">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DeptView1.hints.Deptno.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.DeptView1.hints.Dname.name}"
+                           sortable="false"
+                           headerText="#{bindings.DeptView1.hints.Dname.label}"
+                           id="c2">
+                  <af:outputText value="#{row.Dname}" id="ot2"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.DeptView1.hints.Loc.name}"
+                           sortable="false"
+                           headerText="#{bindings.DeptView1.hints.Loc.label}"
+                           id="c3">
+                  <af:outputText value="#{row.Loc}" id="ot1"/>
+                </af:column>
+              </af:table>
+            </af:panelCollection>
+          </f:facet>
+          <f:facet name="topAccordion">
+            <cl:customerPanel id="cp1" CustEmail="#{bindings.Dname.inputValue}"
+                              CustFirstName="#{bindings.Deptno.inputValue}"
+                              CustLastName="#{bindings.Loc.inputValue}">
+              <f:facet name="extra"/>
+            </cl:customerPanel>
+          </f:facet>
+          <f:facet name="bottonAccordion"/>
+          <f:attribute name="topLabel" value="This is top Lavel"/>
+          <f:attribute name="bottonLabel" value="This is botton Lavel"/>
+          <f:attribute name="splitterPos" value="300"/>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
